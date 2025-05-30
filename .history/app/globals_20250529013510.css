@@ -70,26 +70,6 @@
 	--tw-gradient-position: var(--tw-gradient-direction, to right) in oklab;
 	background-image: linear-gradient(var(--tw-gradient-stops));
 }
-@layer components {
-	.text-outline-white {
-		color: transparent;
-		-webkit-text-stroke: 1px white;
-	}
-
-	.img-hover {
-		@apply h-10 w-10 sm:h-12 sm:h-12 md:h-14 md:w-14 xl:h-48 xl:w-48 absolute inset-0 rounded-2xl object-cover pointer-events-none opacity-0;
-	}
-	.outer {
-		width: 100%;
-		height: 100%;
-		overflow-y: hidden;
-	}
-	.inner {
-		width: 100%;
-		height: 100%;
-		overflow-y: hidden;
-	}
-}
 
 /* For Animated Text */
 .tpk-text-clip div {

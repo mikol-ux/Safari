@@ -1,6 +1,5 @@
 import Morph from "./components/animations/morph";
 import HeroSection from "./section/Hero";
-import Slide from "./section/ImageSlide";
 import Live from "./section/Live";
 
 export default function Home() {
@@ -8,7 +7,7 @@ export default function Home() {
 		<main>
 			<HeroSection />
 			<Live />
-			<Slide />
+			<Morph />
 		</main>
 	);
 }
