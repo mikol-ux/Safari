@@ -1,5 +1,6 @@
 import Morph from "./components/animations/morph";
 import Accordion from "./section/Accordion";
+import Animal from "./section/Animal";
 import HeroSection from "./section/Hero";
 import Slide from "./section/ImageSlide";
 import Live from "./section/Live";
@@ -12,6 +13,7 @@ export default function Home() {
 			<Live />
 			{/* <Slide /> */}
 			<Accordion />
+			<Animal />
 			{/* <SpotlightReveal /> */}
 		</main>
 	);

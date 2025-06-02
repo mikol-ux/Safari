@@ -93,9 +93,9 @@ export default function Live() {
 			ref={containerRef}
 			className="relative h-screen w-full overflow-hidden"
 		>
-			<div className="header w-full h-1/2 flex justify-center items-end">
+			<div className="header w-full h-full flex justify-center items-center">
 				{/* <Morph /> <hr /> */}
-				<p className="z-20 uppercase text-9xl pointer-events-none font-medium">
+				<p className="z-20 uppercase text-[69px] min-[480px]:text-[90px] sm:text-[120px] lg:text-[150px] xl:text-[180px] 3xl:text-[215px] pointer-events-none font-medium">
 					safari
 				</p>
 			</div>
