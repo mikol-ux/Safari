@@ -169,3 +169,56 @@ input:-webkit-autofill:active {
 	transition: background-color 9999s ease-in-out 0s !important;
 	background-color: transparent !important;
 }
+
+:root {
+	--slide-width: 320px;
+	--slide-height: 150px;
+	--slide-gap: 10px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+	:root {
+		--slide-width: 200px;
+		--slide-height: 120px;
+		--slide-gap: 8px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+	:root {
+		--slide-width: 140px;
+		--slide-height: 100px;
+		--slide-gap: 6px;
+	}
+}
+
+.scrollLeft {
+	animation: scrollLeft var(--time) linear infinite;
+}
+.scrollRight {
+	animation: scrollRight var(--time) linear infinite;
+}
+
+@keyframes scrollLeft {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(
+			calc(-1 * (var(--slide-width) + var(--slide-gap)) * var(--slide-count))
+		);
+	}
+}
+
+@keyframes scrollRight {
+	from {
+		transform: translateX(
+			calc(-1 * (var(--slide-width) + var(--slide-gap)) * var(--slide-count))
+		);
+	}
+	to {
+		transform: translateX(0);
+	}
+}

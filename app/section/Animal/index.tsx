@@ -2,71 +2,79 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import SplitText from "gsap/SplitText";
 
 const data = [
 	{
 		id: "1",
 		title: "birds of prey",
 		image: "/acc1.jpg",
-		className: "col-span-4 row-span-3 rounded-3xl",
+		className: "col-span-2 sm:col-span-2 lg:col-span-4 row-span-2 lg:row-span-3 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 	{
 		id: "2",
 		title: "stars",
 		image: "/acc2.jpg",
-		className: "col-span-5 row-span-1 rounded-3xl",
+		className: "col-span-2 sm:col-span-2 lg:col-span-5 row-span-1 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 	{
 		id: "3",
 		title: "birds",
 		image: "/acc3.jpg",
-		className: "col-span-1 row-span-1 rounded-3xl rounded-3xl",
+		className: "col-span-1 sm:col-span-1 lg:col-span-1 row-span-1 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 	{
 		id: "4",
 		title: "giraffes",
 		image: "/acc4.jpg",
-		className: "col-span-2 row-span-2 rounded-3xl rounded-3xl",
+		className: "col-span-2 sm:col-span-2 lg:col-span-2 row-span-2 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 	{
 		id: "5",
 		title: "giraffes",
 		image: "/acc5.jpg",
-		className: "col-span-4 row-span-2 rounded-3xl rounded-3xl",
+		className: "col-span-2 sm:col-span-2 lg:col-span-4 row-span-2 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 	{
 		id: "6",
 		title: "giraffes",
 		image: "/acc6.jpg",
-		className: "col-span-4 row-span-2 rounded-3xl rounded-3xl",
+		className: "col-span-2 sm:col-span-2 lg:col-span-4 row-span-2 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 	{
 		id: "7",
 		title: "giraffes",
 		image: "/acc6.jpg",
-		className: "col-span-6 row-span-2 rounded-3xl",
+		className: "col-span-2 sm:col-span-4 lg:col-span-6 row-span-2 rounded-3xl",
+		string: "On the other hand, we denounce with righteous indignation..."
 	},
 ];
+
+gsap.registerPlugin(SplitText);
 
 export default function Live() {
 	const outerRefs = useRef<HTMLDivElement[]>([]);
 	const innerRefs = useRef<HTMLDivElement[]>([]);
+	const paragraphRefs = useRef<HTMLParagraphElement[]>([]);
 
 	useEffect(() => {
-		// Optional: initial animation when components mount
 		data.forEach((_, i) => {
 			const outer = outerRefs.current[i];
-			const inner = innerRefs.current[i];
-
-			if (!outer || !inner) return;
+			if (!outer) return;
 
 			gsap.fromTo(
 				outer,
-				{ opacity: 0, scale: 0.8 },
+				{ opacity: 0, scale: 0.9 },
 				{
 					opacity: 1,
 					scale: 1,
-					duration: 1,
+					duration: 0.8,
 					delay: i * 0.1,
 					ease: "power2.out",
 				}
@@ -77,65 +85,91 @@ export default function Live() {
 	const handleClick = (i: number) => {
 		const outer = outerRefs.current[i];
 		const inner = innerRefs.current[i];
+		const text = paragraphRefs.current[i];
 
-		if (!outer || !inner) return;
+		if (!outer || !inner || !text) return;
 
-		// Animate outer container
 		gsap.to(outer, {
-			duration: 1.2,
-			backgroundColor: "rgba(0, 0, 0, 0.7)",
 			position: "absolute",
 			inset: 0,
 			width: "100%",
-			height: "100%",
-			zIndex: 10,
+			height: "100vh",
+			backgroundColor: "#fff",
+			zIndex: 50,
 			borderRadius: 0,
-			ease: "power1.out",
-		});
-
-		// Animate inner image
-		gsap.to(inner, {
+			padding: "2rem",
+			ease: "power2.out",
 			duration: 1,
-			scale: 1.2,
-			width: "30%",
-			height: "30%",
-			borderRadius: "50%",
-			ease: "elastic.out(1, 0.3)",
 		});
 
-		// Optional reset after delay
 		gsap.to(inner, {
-			delay: 1.5,
-			duration: 0.8,
+			position: "absolute",
+			top: "2rem",
+			right: "2rem",
+			width: "250px",
+			height: "250px",
 			scale: 1,
-			borderRadius: "0%",
-			ease: "power2.inOut",
+			opacity: 1,
+			duration: 1,
+			ease: "power2.out",
 		});
+
+		const split = new SplitText(text, { type: "lines" });
+		gsap.fromTo(
+			split.lines,
+			{ y: 30, opacity: 0 },
+			{
+				y: 0,
+				opacity: 1,
+				duration: 0.8,
+				stagger: 0.05,
+				ease: "power2.out",
+				delay: 0.5,
+			}
+		);
 	};
 
 	return (
-		<section className="relative flex h-screen w-full flex-col items-center justify-center rounded-lg p-6 dark:bg-slate-900">
-			<div className="relative grid h-full w-full grid-cols-10 grid-rows-5 gap-4">
+		<section className="relative flex h-screen w-full items-center justify-center bg-gray-100 p-6 dark:bg-slate-900 overflow-auto">
+			<div className="relative grid w-full h-full gap-4 
+				grid-cols-2 grid-rows-[repeat(7,minmax(100px,1fr))] 
+				sm:grid-cols-4 sm:grid-rows-[repeat(5,minmax(100px,1fr))] 
+				lg:grid-cols-10 lg:grid-rows-5">
 				{data.map((item, i) => (
 					<div
 						key={item.id}
+						className={`relative overflow-hidden bg-white shadow-xl cursor-pointer transition-transform w-full h-full ${item.className}`}
 						onClick={() => handleClick(i)}
-						className={`bg-white rounded-xl shadow-xl flex items-center justify-center cursor-pointer transition-transform w-full h-full ${item.className}`}
+						ref={(el) => {
+							if (el) outerRefs.current[i] = el;
+						}}
 					>
 						<div
+							className="w-full h-full bg-cover bg-center bg-no-repeat"
+							style={{ backgroundImage: `url(${item.image})` }}
+						/>
+
+						<div
 							ref={(el) => {
-								if (el) outerRefs.current[i] = el;
+								if (el) innerRefs.current[i] = el;
 							}}
-							className={`bg-white rounded-xl shadow-xl flex items-center justify-center cursor-pointer transition-transform hover:scale-105 w-full h-full ${item.className} overflow-hidden`}
+							className="opacity-0 pointer-events-none"
+							style={{
+								backgroundImage: `url(${item.image})`,
+								backgroundSize: "cover",
+								backgroundPosition: "center",
+								borderRadius: "1rem",
+							}}
+						/>
+
+						<p
+							ref={(el) => {
+								if (el) paragraphRefs.current[i] = el;
+							}}
+							className="absolute left-6 top-6 max-w-[60%] text-black text-lg leading-relaxed opacity-0"
 						>
-							<div
-								ref={(el) => {
-									if (el) innerRefs.current[i] = el;
-								}}
-								className="w-full h-full bg-cover bg-no-repeat bg-center rounded-lg hover:scale-105 transition-all delay-100 duration-300 ease-in-out"
-								style={{ backgroundImage: `url(${item.image})` }}
-							/>
-						</div>
+							{item.string}
+						</p>
 					</div>
 				))}
 			</div>
