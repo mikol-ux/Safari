@@ -1,49 +1,44 @@
-// VisitingInfo.tsx
 "use client";
 
-import Link from "next/link";
 
 export default function VisitingInfo() {
 	return (
-		<section className="w-full px-4 py-12 bg-white text-gray-800">
-			<div className="max-w-5xl mx-auto space-y-10">
-				<h2 className="text-3xl font-bold text-center">Visiting Information</h2>
+		<section id="visit" className="w-full px-4 py-12 bg-white text-gray-800 flex items-center">
+			<div className="mx-auto max-w-7xl space-y-10">
+				<h2 className="text-3xl md:text-4xl font-bold text-center">Visiting Information</h2>
 
-				{/* Hours & Fees */}
-				<div className="bg-gray-100 p-6 rounded-2xl shadow-md space-y-4">
-					<h3 className="text-xl font-semibold">Opening Hours</h3>
-					<p>Monday – Sunday: 6:00 AM – 6:00 PM</p>
+				{/* Hours & Fees + Rules */}
+				<div className="w-full flex flex-col md:flex-row md:gap-12 items-start md:items-stretch justify-between">
+					{/* Opening Hours */}
+					<div className="md:w-1/2 space-y-6">
+						<h3 className="text-2xl font-semibold">Opening Hours</h3>
+						<p className="text-xl font-light">Monday – Sunday: <strong>6:00 AM – 6:00 PM</strong></p>
 
-					<h3 className="text-xl font-semibold">Entrance Fees</h3>
-					<ul className="list-disc list-inside">
-						<li>Adults: ₦2,000</li>
-						<li>Children: ₦1,000</li>
-						<li>Guided Tour: ₦5,000 per person</li>
-					</ul>
+						<h3 className="text-2xl font-semibold ">Best Time to Visit</h3>
+						<p className="text-xl font-extralight">
+							We recommend visiting during the <strong>dry season</strong> (November to March), especially in the <strong>early morning</strong> for the best wildlife sightings.
+						</p>
+					</div>
 
-					<h3 className="text-xl font-semibold">Rules & Safety</h3>
-					<ul className="list-disc list-inside">
-						<li>Stay inside your vehicle unless otherwise instructed</li>
-						<li>Do not feed or disturb the animals</li>
-						<li>Follow guide and posted signs at all times</li>
-					</ul>
-				</div>
-
-				{/* Best Time Tips */}
-				<div className="bg-green-50 p-6 rounded-2xl shadow-md space-y-3">
-					<h3 className="text-xl font-semibold">Best Time to Visit</h3>
-					<p>
-						The best months are during the dry season (Nov – Mar), especially early mornings (6–9 AM) for active wildlife and cooler temperatures.
-					</p>
-				</div>
-
-				{/* Booking CTA */}
-				<div className="text-center">
-					<Link href="/contact">
-						<button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">
-							📅 Book a Guided Tour
-						</button>
-					</Link>
+					{/* Fees & Rules */}
+					<div className="md:w-1/2 space-y-10 mt-10 md:mt-0">
+						<div>
+							<h3 className="text-4xl font-semibold mb-2">Entrance Fees</h3>
+							<ul className="list-disc list-inside text-2xl font-light space-y-1">
+								<li>Adults: ₦2,000</li>
+								<li>Children: ₦1,000</li>
+								<li>Guided Tour: ₦5,000 per person</li>
+							</ul>
+						</div>
+						<div>
+							<h3 className="text-4xl font-semibold mb-2">Rules & Safety</h3>
+							<ul className="list-disc list-inside text-2xl font-light space-y-1">
+								<li>Stay inside your vehicle unless otherwise instructed</li>
+								<li>Do not feed or disturb the animals</li>
+								<li>Follow guide and posted signs at all times</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

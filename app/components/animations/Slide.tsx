@@ -53,7 +53,7 @@ const Slide = ({ id, images = [], direction = "left" }: SlideProps) => {
 				{slides.map((image, index) => (
 					<div
 						key={index}
-						className="slide border border-gray-200 overflow-hidden rounded-3xl"
+						className="slide border border-[#4a7c59] overflow-hidden rounded-3xl"
 						style={{
 							width: "var(--slide-width)",
 							height: "var(--slide-height)",

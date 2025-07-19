@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
-import MorphSVGPlugin from "gsap/MorphSVGPlugin";
+
 import * as flubber from "flubber";
 
 export default function Morph() {

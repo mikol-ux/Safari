@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import Slider from "../Bento";
 
 export default function SerengetiSection() {
 	return (
-		<section className="relative w-full bg-slate-900 py-16 px-6 sm:px-10 lg:px-20 flex items-center justify-center">
+		<section id="about" className="relative w-full py-16 px-6 sm:px-10 lg:px-20 flex flex-col items-center justify-center">
 			<div className="max-w-5xl text-center flex flex-col items-center justify-center">
 				<h2 className="text-6xl font-bold text-gray-700 mb-6">
 					Serengeti National Park
@@ -26,7 +26,7 @@ export default function SerengetiSection() {
 					Plan Your Visit
 				</button>
 			</div>
-
+			<Slider />
 		</section>
 	)
 }

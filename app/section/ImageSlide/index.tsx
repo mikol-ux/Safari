@@ -7,7 +7,7 @@ gsap.registerPlugin(Observer, SplitText);
 
 export default function Slide() {
 	useEffect(() => {
-		let sections = document.querySelectorAll("article"),
+		const sections = document.querySelectorAll("article"),
 			images = document.querySelectorAll(".bg"),
 			headings = gsap.utils.toArray(".section-heading"),
 			outerWrappers = gsap.utils.toArray(".outer"),
@@ -35,8 +35,8 @@ export default function Slide() {
 			if (animating || index === currentIndex) return;
 
 			animating = true;
-			let fromTop = direction === -1;
-			let dfactor = fromTop ? -1 : 1;
+			const fromTop = direction === -1;
+			const dfactor = fromTop ? -1 : 1;
 
 			const tl = gsap.timeline({
 				defaults: { duration: 1.25, ease: "power1.inOut" },

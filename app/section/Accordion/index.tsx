@@ -74,14 +74,13 @@ export default function Live() {
 	};
 
 	return (
-		<section className="flex items-center justify-center bg-white min-h-screen">
-			<div className="slider flex flex-row w-[85vw] overflow-hidden max-[660px]:flex-col max-[660px]:h-screen max-[660px]:m-8">
+		<section id="gallery" className="flex items-center justify-center bg-white 3xl:h-[60vh]">
+			<div className="slider flex flex-row max-w-7xl w-[95vw] xl:w-[85vw] overflow-hidden max-[660px]:flex-col max-[660px]:h-screen max-[660px]:m-8">
 				{data.map((d, i) => (
 					<div
 						key={d.id}
-						className={`slide flex-1 h-[80vh] rounded-[30px] m-2.5 cursor-pointer select-none relative max-[660px]:h-[5vh] ${
-							i === currentSlide ? "active" : ""
-						}`}
+						className={`slide flex-1 h-[80vh] 3xl:h-[50vh] rounded-[30px] m-2.5 cursor-pointer select-none relative max-[660px]:h-[5vh] ${i === currentSlide ? "active" : ""
+							}`}
 						ref={(el) => {
 							if (el) slideRef.current[i] = el;
 						}}

@@ -1,12 +1,10 @@
-import Morph from "./components/animations/morph";
+
+import Footer from "./partials/Footer";
 import SerengetiSection from "./section/Aboutus";
 import Accordion from "./section/Accordion";
-import Animal from "./section/Animal";
-import Slider from "./section/Bento";
+
 import HeroSection from "./section/Hero";
-import Slide from "./section/ImageSlide";
 import Live from "./section/Live";
-import SpotlightReveal from "./section/Reveal";
 import VisitingInfo from "./section/Visit";
 
 export default function Home() {
@@ -14,12 +12,13 @@ export default function Home() {
 		<main>
 			<HeroSection />
 			<Live />
-			<SerengetiSection />
-			<Slider />
+			<main>
+				<SerengetiSection />
+			</main>
 			{/* <Slide /> */}
 			<Accordion />
 			<VisitingInfo />
-			<Animal />
+			<Footer />
 		</main>
 	);
 }

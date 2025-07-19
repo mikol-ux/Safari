@@ -20,12 +20,12 @@ const slides = [
 
 export default function Slider() {
 	return (
-		<section className="w-full flex justify-center items-center py-10">
+		<div className="w-full flex justify-center items-center py-10">
 			<div className="w-full max-w-screen-xl flex flex-col gap-6 px-4">
 				{slides.map((item) => (
 					<Slide key={item.id} {...item} />
 				))}
 			</div>
-		</section>
+		</div>
 	);
 }

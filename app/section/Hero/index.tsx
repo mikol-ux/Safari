@@ -27,18 +27,27 @@ export default function HeroSection() {
 			});
 	}, []);
 	return (
-		<section className="h-screen bg-[url('/zebra.jpg')] bg-cover bg-no-repeat bg-center text-black">
-			<div className="h-full w-full flex flex-col justify-between p-6">
+		<section className="h-screen relative bg-[url('/zebra.jpg')] bg-cover bg-no-repeat bg-center text-black">
+			<video
+				className="absolute inset-0 w-full h-full object-cover z-[1]"
+				src="/Head.mp4"
+				autoPlay
+				loop
+				muted
+				playsInline
+			/>
+
+			<div className="relative h-full w-full flex flex-col justify-between p-6 z-10 ">
 				<div className="text-left space-y-2">
 					{/* <p className="text-xl uppercase">grand tour</p>
 					<p className="text-xl uppercase">feel life</p> */}
 				</div>
 				<div className="text-right font-bold leading-none border-r-8 border-black overflow-hidden pr-[2%]">
 					<p className="introline text-[50px] min-[480px]:text-[90px] sm:text-[120px] lg:text-[150px] xl:text-[180px] 3xl:text-[215px] opacity-0 translate-x-full">
-						SERENGETI
+						AFRICAN
 					</p>
 					<p className="bigline text-[50px] min-[480px]:text-[90px] sm:text-[120px] lg:text-[150px] xl:text-[180px] 3xl:text-[215px] opacity-0 translate-x-full">
-						NATIONAL PARK
+						SAFARI
 					</p>
 				</div>
 			</div>
